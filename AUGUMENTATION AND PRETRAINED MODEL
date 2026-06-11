@@ -1,0 +1,346 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyNRaxtdFWevMxGk8JEZkrdw",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/tharun8571/dl-pratice/blob/main/AUGUMENTATION%20AND%20PRETRAINED%20MODEL\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 52,
+      "metadata": {
+        "id": "euKDIN0WRJGQ"
+      },
+      "outputs": [],
+      "source": [
+        "from keras.preprocessing import image"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "from keras.src.legacy.preprocessing.image import ImageDataGenerator"
+      ],
+      "metadata": {
+        "id": "J8iDVXsuRSNB"
+      },
+      "execution_count": 53,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "import cv2\n",
+        "import numpy as np"
+      ],
+      "metadata": {
+        "id": "hogmCc9CSGSi"
+      },
+      "execution_count": 54,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "data=cv2.imread(\"/content/Cat_07464_kalamis_safinaz.jpg\")"
+      ],
+      "metadata": {
+        "id": "zOlmtWpET227"
+      },
+      "execution_count": 62,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "import matplotlib.pyplot as plt"
+      ],
+      "metadata": {
+        "id": "A7UO41M1VHs5"
+      },
+      "execution_count": 63,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "datagen=ImageDataGenerator(rotation_range=0,\n",
+        "    width_shift_range=0.2,\n",
+        "    height_shift_range=0.2, horizontal_flip=False,shear_range=0.2,\n",
+        "    zoom_range=0.2\n",
+        "                       )"
+      ],
+      "metadata": {
+        "id": "Ps8KD0ctVa0H"
+      },
+      "execution_count": 64,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "import cv2\n",
+        "import numpy as np\n",
+        "\n",
+        "\n",
+        "resized_data = cv2.resize(data, (224, 224))\n",
+        "\n",
+        "\n",
+        "input_data = np.expand_dims(resized_data, axis=0)\n",
+        "\n",
+        "print(input_data.shape)\n"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "0mziPR6YWYgU",
+        "outputId": "88dbf6b8-4578-4d0b-b147-e68acf793d39"
+      },
+      "execution_count": 65,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "(1, 224, 224, 3)\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "input_data.shape"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "NWnu4ctlW0py",
+        "outputId": "cb5e173a-c1c6-4614-acde-6fd764ce47d6"
+      },
+      "execution_count": 66,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "(1, 224, 224, 3)"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 66
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "import os\n",
+        "import shutil\n",
+        "\n",
+        "target_dir = \"/content/thar\"\n",
+        "\n",
+        "\n",
+        "if os.path.exists(target_dir) and not os.path.isdir(target_dir):\n",
+        "    os.remove(target_dir)\n",
+        "\n",
+        "\n",
+        "os.makedirs(target_dir, exist_ok=True)\n"
+      ],
+      "metadata": {
+        "id": "yjXhSlHbYiY5"
+      },
+      "execution_count": 67,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "i=0\n",
+        "for j in datagen.flow(input_data,batch_size=1,save_to_dir=\"/content/thar\"):\n",
+        "  i+=1\n",
+        "  if i>20:\n",
+        "    break"
+      ],
+      "metadata": {
+        "id": "0CLtwNwzXkqq"
+      },
+      "execution_count": 68,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "import numpy as np\n",
+        "from tensorflow.keras.applications.resnet50 import ResNet50, preprocess_input, decode_predictions\n",
+        "from tensorflow.keras.preprocessing import image"
+      ],
+      "metadata": {
+        "id": "FK6VvY3ThxSF"
+      },
+      "execution_count": 70,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "model=ResNet50(weights=\"imagenet\")"
+      ],
+      "metadata": {
+        "id": "p-9M63aCnI8G"
+      },
+      "execution_count": 71,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "from tensorflow.keras.preprocessing import image as keras_image\n",
+        "img = keras_image.load_img(\"/content/Cat_07464_kalamis_safinaz.jpg\", target_size=(224, 224))\n"
+      ],
+      "metadata": {
+        "id": "s0lfSoTgnOKq"
+      },
+      "execution_count": 72,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "import cv2\n",
+        "img2=cv2.imread(\"/content/download.jpg\")"
+      ],
+      "metadata": {
+        "id": "xug2EnGzqFIB"
+      },
+      "execution_count": 73,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "img=np.array(img)\n",
+        "img2=np.array(img2)"
+      ],
+      "metadata": {
+        "id": "kbgsURAyn9zb"
+      },
+      "execution_count": 74,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "img=np.expand_dims(img,axis=0)\n",
+        "img2=np.expand_dims(img2,axis=0)\n"
+      ],
+      "metadata": {
+        "id": "hHc5ivn2o8RI"
+      },
+      "execution_count": 75,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "input_img=preprocess_input(img)\n",
+        "input_img2=preprocess_input(img2)\n",
+        "\n"
+      ],
+      "metadata": {
+        "id": "VR0dTke3pPzZ"
+      },
+      "execution_count": 76,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "preds = model.predict(input_img)\n",
+        "print('Predicted:', decode_predictions(preds, top=3)[0])\n"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "Z8fSEVxYpitH",
+        "outputId": "fb731fea-4de2-4a8d-8e45-553f5b91fbcd"
+      },
+      "execution_count": 77,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stderr",
+          "text": [
+            "WARNING:tensorflow:6 out of the last 7 calls to <function TensorFlowTrainer.make_predict_function.<locals>.one_step_on_data_distributed at 0x7aab6cfd3ce0> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has reduce_retracing=True option that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/guide/function#controlling_retracing and https://www.tensorflow.org/api_docs/python/tf/function for  more details.\n"
+          ]
+        },
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "\u001b[1m1/1\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m3s\u001b[0m 3s/step\n",
+            "Predicted: [('n02123045', 'tabby', np.float32(0.78129685)), ('n02123159', 'tiger_cat', np.float32(0.15510945)), ('n02127052', 'lynx', np.float32(0.026506836))]\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "preds2=model.predict(input_img2)\n",
+        "print(\"Predicted:\",decode_predictions(preds2,top=3)[0])\n"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "jM44UDIJpoK1",
+        "outputId": "47128945-28ec-4ec9-dd0a-7a9bc5e4dbad"
+      },
+      "execution_count": 78,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "\u001b[1m1/1\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m2s\u001b[0m 2s/step\n",
+            "Predicted: [('n07930864', 'cup', np.float32(0.82258415)), ('n03063599', 'coffee_mug', np.float32(0.122463204)), ('n07920052', 'espresso', np.float32(0.009776966))]\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [],
+      "metadata": {
+        "id": "ItW1Pty_t_kv"
+      },
+      "execution_count": null,
+      "outputs": []
+    }
+  ]
+}
