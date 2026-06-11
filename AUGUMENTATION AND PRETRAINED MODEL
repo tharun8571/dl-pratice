@@ -4,7 +4,7 @@
   "metadata": {
     "colab": {
       "provenance": [],
-      "authorship_tag": "ABX9TyNsI6aXBTO4oZLiirqn/kDL",
+      "authorship_tag": "ABX9TyNZxJZ3vDOlHHqDfWBdwrE0",
       "include_colab_link": true
     },
     "kernelspec": {
@@ -37,7 +37,7 @@
     },
     {
       "cell_type": "code",
-      "execution_count": null,
+      "execution_count": 52,
       "metadata": {
         "id": "euKDIN0WRJGQ"
       },
@@ -54,7 +54,7 @@
       "metadata": {
         "id": "J8iDVXsuRSNB"
       },
-      "execution_count": null,
+      "execution_count": 53,
       "outputs": []
     },
     {
@@ -66,18 +66,18 @@
       "metadata": {
         "id": "hogmCc9CSGSi"
       },
-      "execution_count": null,
+      "execution_count": 54,
       "outputs": []
     },
     {
       "cell_type": "code",
       "source": [
-        "data=cv2.imread(\"/content/WhatsApp Image 2026-01-10 at 11.07.04 AM.jpeg\")"
+        "data=cv2.imread(\"/content/Cat_07464_kalamis_safinaz.jpg\")"
       ],
       "metadata": {
         "id": "zOlmtWpET227"
       },
-      "execution_count": null,
+      "execution_count": 62,
       "outputs": []
     },
     {
@@ -88,7 +88,7 @@
       "metadata": {
         "id": "A7UO41M1VHs5"
       },
-      "execution_count": null,
+      "execution_count": 63,
       "outputs": []
     },
     {
@@ -103,34 +103,8 @@
       "metadata": {
         "id": "Ps8KD0ctVa0H"
       },
-      "execution_count": null,
+      "execution_count": 64,
       "outputs": []
-    },
-    {
-      "cell_type": "code",
-      "source": [
-        "data.shape"
-      ],
-      "metadata": {
-        "colab": {
-          "base_uri": "https://localhost:8080/"
-        },
-        "id": "mb-n7A5dWmsm",
-        "outputId": "48f40ff2-1997-42f4-cd04-db39353873f4"
-      },
-      "execution_count": null,
-      "outputs": [
-        {
-          "output_type": "execute_result",
-          "data": {
-            "text/plain": [
-              "(1600, 1158, 3)"
-            ]
-          },
-          "metadata": {},
-          "execution_count": 10
-        }
-      ]
     },
     {
       "cell_type": "code",
@@ -151,9 +125,9 @@
           "base_uri": "https://localhost:8080/"
         },
         "id": "0mziPR6YWYgU",
-        "outputId": "4af90579-ec4c-4fa9-e632-c69a02567206"
+        "outputId": "88dbf6b8-4578-4d0b-b147-e68acf793d39"
       },
-      "execution_count": null,
+      "execution_count": 65,
       "outputs": [
         {
           "output_type": "stream",
@@ -174,9 +148,9 @@
           "base_uri": "https://localhost:8080/"
         },
         "id": "NWnu4ctlW0py",
-        "outputId": "562678b8-3654-4964-91c4-bf28c2bf3333"
+        "outputId": "cb5e173a-c1c6-4614-acde-6fd764ce47d6"
       },
-      "execution_count": null,
+      "execution_count": 66,
       "outputs": [
         {
           "output_type": "execute_result",
@@ -186,7 +160,7 @@
             ]
           },
           "metadata": {},
-          "execution_count": 12
+          "execution_count": 66
         }
       ]
     },
@@ -208,7 +182,7 @@
       "metadata": {
         "id": "yjXhSlHbYiY5"
       },
-      "execution_count": null,
+      "execution_count": 67,
       "outputs": []
     },
     {
@@ -223,32 +197,8 @@
       "metadata": {
         "id": "0CLtwNwzXkqq"
       },
-      "execution_count": null,
+      "execution_count": 68,
       "outputs": []
-    },
-    {
-      "cell_type": "code",
-      "source": [
-        "from google.colab import drive\n",
-        "drive.mount('/content/drive')"
-      ],
-      "metadata": {
-        "colab": {
-          "base_uri": "https://localhost:8080/"
-        },
-        "id": "heGWJWmuYyEy",
-        "outputId": "b6e7197a-e7d0-4ca3-88f6-31bed773c9a2"
-      },
-      "execution_count": null,
-      "outputs": [
-        {
-          "output_type": "stream",
-          "name": "stdout",
-          "text": [
-            "Drive already mounted at /content/drive; to attempt to forcibly remount, call drive.mount(\"/content/drive\", force_remount=True).\n"
-          ]
-        }
-      ]
     },
     {
       "cell_type": "markdown",
@@ -269,7 +219,7 @@
       "metadata": {
         "id": "FK6VvY3ThxSF"
       },
-      "execution_count": 43,
+      "execution_count": 70,
       "outputs": []
     },
     {
@@ -280,7 +230,7 @@
       "metadata": {
         "id": "p-9M63aCnI8G"
       },
-      "execution_count": 44,
+      "execution_count": 71,
       "outputs": []
     },
     {
@@ -292,7 +242,7 @@
       "metadata": {
         "id": "s0lfSoTgnOKq"
       },
-      "execution_count": 45,
+      "execution_count": 72,
       "outputs": []
     },
     {
@@ -304,7 +254,7 @@
       "metadata": {
         "id": "xug2EnGzqFIB"
       },
-      "execution_count": 46,
+      "execution_count": 73,
       "outputs": []
     },
     {
@@ -316,7 +266,7 @@
       "metadata": {
         "id": "kbgsURAyn9zb"
       },
-      "execution_count": 47,
+      "execution_count": 74,
       "outputs": []
     },
     {
@@ -328,7 +278,7 @@
       "metadata": {
         "id": "hHc5ivn2o8RI"
       },
-      "execution_count": 48,
+      "execution_count": 75,
       "outputs": []
     },
     {
@@ -341,7 +291,7 @@
       "metadata": {
         "id": "VR0dTke3pPzZ"
       },
-      "execution_count": 49,
+      "execution_count": 76,
       "outputs": []
     },
     {
@@ -355,15 +305,22 @@
           "base_uri": "https://localhost:8080/"
         },
         "id": "Z8fSEVxYpitH",
-        "outputId": "b037782f-8ee7-467c-8960-5c96c8a5d1c2"
+        "outputId": "fb731fea-4de2-4a8d-8e45-553f5b91fbcd"
       },
-      "execution_count": 50,
+      "execution_count": 77,
       "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stderr",
+          "text": [
+            "WARNING:tensorflow:6 out of the last 7 calls to <function TensorFlowTrainer.make_predict_function.<locals>.one_step_on_data_distributed at 0x7aab6cfd3ce0> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has reduce_retracing=True option that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/guide/function#controlling_retracing and https://www.tensorflow.org/api_docs/python/tf/function for  more details.\n"
+          ]
+        },
         {
           "output_type": "stream",
           "name": "stdout",
           "text": [
-            "\u001b[1m1/1\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m2s\u001b[0m 2s/step\n",
+            "\u001b[1m1/1\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m3s\u001b[0m 3s/step\n",
             "Predicted: [('n02123045', 'tabby', np.float32(0.78129685)), ('n02123159', 'tiger_cat', np.float32(0.15510945)), ('n02127052', 'lynx', np.float32(0.026506836))]\n"
           ]
         }
@@ -380,26 +337,28 @@
           "base_uri": "https://localhost:8080/"
         },
         "id": "jM44UDIJpoK1",
-        "outputId": "7b12e5c6-6722-4542-b837-150cd9eff031"
+        "outputId": "47128945-28ec-4ec9-dd0a-7a9bc5e4dbad"
       },
-      "execution_count": 51,
+      "execution_count": 78,
       "outputs": [
-        {
-          "output_type": "stream",
-          "name": "stderr",
-          "text": [
-            "WARNING:tensorflow:5 out of the last 6 calls to <function TensorFlowTrainer.make_predict_function.<locals>.one_step_on_data_distributed at 0x7aab876c5120> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has reduce_retracing=True option that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/guide/function#controlling_retracing and https://www.tensorflow.org/api_docs/python/tf/function for  more details.\n"
-          ]
-        },
         {
           "output_type": "stream",
           "name": "stdout",
           "text": [
-            "\u001b[1m1/1\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m3s\u001b[0m 3s/step\n",
+            "\u001b[1m1/1\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m2s\u001b[0m 2s/step\n",
             "Predicted: [('n07930864', 'cup', np.float32(0.82258415)), ('n03063599', 'coffee_mug', np.float32(0.122463204)), ('n07920052', 'espresso', np.float32(0.009776966))]\n"
           ]
         }
       ]
+    },
+    {
+      "cell_type": "code",
+      "source": [],
+      "metadata": {
+        "id": "ItW1Pty_t_kv"
+      },
+      "execution_count": null,
+      "outputs": []
     }
   ]
 }
